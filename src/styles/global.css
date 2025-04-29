@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+
+  --color-primary: #523ae7;
+  --color-secondary: #af87ff;
+  --color-background: #000212;
+  --color-foreground: #c1d0e2;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    letter-spacing: 0.02em;
+  }
+
+  a,
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  .typography-1 {
+    font-size: 4.25rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  .typography-2 {
+    font-size: var(--text-5xl);
+    text-transform: uppercase;
+  }
+
+  .typography-3 {
+    text-transform: uppercase;
+    font-size: 2rem;
+  }
+}
+
+@layer components {
+  .gradient {
+    background: linear-gradient(var(--color-white), var(--color-secondary));
+    color: transparent;
+    background-clip: text;
+  }
+}
+
+@utility container {
+  --padding-x: 20px;
+  --container-width: 1280px;
+
+  width: 100%;
+  max-width: calc(var(--container-width) + var(--padding-x) * 2);
+  padding-inline: var(--padding-x);
+  margin: 0 auto;
+}

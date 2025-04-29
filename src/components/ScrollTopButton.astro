@@ -1,0 +1,21 @@
+---
+import ArrowIcon from "@assets/icons/arrow.svg";
+---
+
+<button
+  class="group rounded-full"
+  id="scroll-button"
+  aria-label="scroll to top"
+>
+  <span
+    class="inline-flex size-[50px] items-center justify-center rounded-full border border-[#1D1F2E] bg-[#0C0E1D] transition-transform group-hover:-translate-y-1"
+  >
+    <ArrowIcon class="-rotate-90" />
+  </span>
+</button>
+
+<script>
+  document.querySelector("#scroll-button")?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
