@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+
+import CheckedList from "@ui/CheckedList.astro";
+
+import aiImage from "@assets/ai.png";
+---
+
+<section>
+  <div class="container">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="space-y-6">
+        <h2 class="typography-2 gradient">Why cybertactik <br /> exist?</h2>
+
+        <p class="text-lg">
+          CYBERTACTIK was created to solve a growing and critical problem: most
+          organizations are unprepared for real-world cyber crises. While
+          companies invest heavily in prevention tools—firewalls, EDR,
+          compliance—they often overlook the human element: how teams actually
+          respond when an attack strikes.
+        </p>
+
+        <CheckedList
+          items={[
+            "Train their teams to act with confidence under stress",
+            "Identify weak links before attackers do",
+            "Improve incident response with real metrics, not guesswork",
+            "Build a culture of cyber resilience, not just compliance",
+          ]}
+        />
+      </div>
+
+      <div>
+        <Image class="rounded-3xl" src={aiImage} alt="" />
+      </div>
+    </div>
+  </div>
+</section>

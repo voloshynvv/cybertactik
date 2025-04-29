@@ -1,0 +1,75 @@
+---
+import shapeIcon from "@assets/icons/shape.svg";
+import AnimatedPlusIcon from "@assets/icons/animated-plus.svg";
+
+const faq = [
+  {
+    summary: "Input & Configuration",
+    content:
+      "Based on this input, AI creates a realistic, industry-specific attack simulation—such as ransomware, phishing, insider threat, or DDoS—tailored to the organization's vulnerabilities.",
+  },
+  {
+    summary: "AI-Generated Scenario",
+    content:
+      "Based on this input, AI creates a realistic, industry-specific attack simulation—such as ransomware, phishing, insider threat, or DDoS—tailored to the organization's vulnerabilities.",
+  },
+  {
+    summary: "Live Crisis Simulation",
+    content:
+      "Based on this input, AI creates a realistic, industry-specific attack simulation—such as ransomware, phishing, insider threat, or DDoS—tailored to the organization's vulnerabilities.",
+  },
+  {
+    summary: "Performance Tracking & Scoring",
+    content:
+      "Based on this input, AI creates a realistic, industry-specific attack simulation—such as ransomware, phishing, insider threat, or DDoS—tailored to the organization's vulnerabilities.",
+  },
+  {
+    summary: "Input & Configuration",
+    content:
+      "Based on this input, AI creates a realistic, industry-specific attack simulation—such as ransomware, phishing, insider threat, or DDoS—tailored to the organization's vulnerabilities.",
+  },
+  {
+    summary: "Post-Simulation Insights",
+    content:
+      "Based on this input, AI creates a realistic, industry-specific attack simulation—such as ransomware, phishing, insider threat, or DDoS—tailored to the organization's vulnerabilities.",
+  },
+];
+---
+
+<section>
+  <div class="container">
+    <h2 class="typography-2 gradient mb-6 max-w-md">
+      How cybertactik delivers results
+    </h2>
+
+    <p class="mb-6 max-w-80 font-medium">
+      5 Steps to Outsmart Cyber Chaos and Ensure Business Continuity
+    </p>
+
+    <div class="grid gap-10 lg:grid-cols-[1fr_1.5fr]">
+      <div class="space-y-4">
+        {
+          faq.map(({ content, summary }) => (
+            <details class="group rounded-3xl border border-neutral-500 bg-neutral-700">
+              <summary class="flex cursor-pointer items-center justify-between px-8 py-6 text-xl">
+                {summary}
+
+                <AnimatedPlusIcon />
+              </summary>
+
+              <p class="px-8 pb-6 text-lg">{content}</p>
+            </details>
+          ))
+        }
+      </div>
+
+      <div>
+        <div
+          class="w-fit overflow-hidden rounded-3xl border border-neutral-500 bg-neutral-700"
+        >
+          <img src={shapeIcon.src} alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
