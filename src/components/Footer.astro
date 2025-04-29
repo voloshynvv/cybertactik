@@ -1,6 +1,6 @@
 ---
 import FooterHelpBanner from "./FooterHelpBanner.astro";
-import ScrollTopButton from "./ScrollTopButton.astro";
+import FooterScrollButton from "./FooterScrollButton.astro";
 
 import InstagramIcon from "@assets/icons/instagram.svg";
 import LinkedinIcon from "@assets/icons/linkedin.svg";
@@ -75,10 +75,11 @@ const links = [
             <p class="mb-4 text-sm tracking-normal">Follow Us</p>
 
             <div class="flex gap-x-8">
-              <a href="">
+              <a href="#" aria-label="instagram">
                 <InstagramIcon />
               </a>
-              <a href="">
+
+              <a href="#" aria-label="linkedin">
                 <LinkedinIcon />
               </a>
             </div>
@@ -103,7 +104,7 @@ const links = [
     </div>
 
     <div class="mt-11 space-y-4 lg:col-span-full">
-      <ScrollTopButton />
+      <FooterScrollButton />
       <FooterHelpBanner />
     </div>
   </div>
