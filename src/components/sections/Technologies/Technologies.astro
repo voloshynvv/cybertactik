@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+
+import Technology from "./Technology.astro";
+
+import CloudIcon from "@assets/icons/cloud.svg";
+import DeviceIcon from "@assets/icons/device.svg";
+import KeyIcon from "@assets/icons/key.svg";
+import telImage from "@assets/tel.png";
+---
+
+<section>
+  <div class="container">
+    <div class="grid gap-6 lg:grid-cols-2">
+      <div>
+        <h2 class="typography-2 gradient mb-6">
+          Key technologies: web platform cybertactik
+        </h2>
+
+        <ul class="flex flex-col gap-6">
+          <Technology
+            title="Cloud Hosting"
+            description="Online platform for flexible use, in-person or remotely, ensuring high availability."
+            icon={CloudIcon}
+          />
+
+          <Technology
+            title="Responsive Design"
+            description="Intuitive and adaptive user interface, optimized for use on computers, tablets, and smartphones"
+            icon={DeviceIcon}
+          />
+
+          <Technology
+            title="Enhanced Security"
+            description="Advanced security protocols to protect client sensitive data and the integrity of simulations"
+            icon={KeyIcon}
+          />
+        </ul>
+      </div>
+
+      <div>
+        <Image class="rounded-3xl" src={telImage} alt="" />
+      </div>
+    </div>
+  </div>
+</section>
