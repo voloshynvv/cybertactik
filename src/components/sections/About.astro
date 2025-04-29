@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+
+import Button from "@ui/Button.astro";
+
+import globe from "@assets/globe.png";
+---
+
+<section id="about">
+  <div class="container">
+    <div class="flex flex-col items-center gap-6 lg:flex-row">
+      <div class="space-y-6">
+        <p
+          class="inline-flex h-[2.625rem] w-fit items-center justify-center rounded-lg border border-neutral-500 bg-neutral-800 px-4 text-base font-medium"
+        >
+          About
+        </p>
+
+        <h2 class="gradient typography-2">What IS CYBERTACTIK?</h2>
+
+        <p class="text-xl font-medium">
+          A revolutionary web platform that delivers an immersive cybersecurity
+          crisis simulator.
+        </p>
+
+        <p class="text-lg">
+          Powered by AI, VR, and advanced analytics, this solution
+          revolutionizes cyber attack preparation. It offers customized,
+          realistic simulations for organizations of all sizes, accessible
+          remotely or in-person through an intuitive interface compatible with
+          any device.
+        </p>
+
+        <Button href="#">Book a meeting</Button>
+      </div>
+
+      <div class="shrink-0">
+        <Image src={globe} alt="" />
+      </div>
+    </div>
+  </div>
+</section>
