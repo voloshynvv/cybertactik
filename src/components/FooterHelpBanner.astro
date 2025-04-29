@@ -1,9 +1,9 @@
 ---
-import arrowIcon from "@assets/icons/arrow.svg";
+import ArrowIcon from "@assets/icons/arrow.svg";
 ---
 
 <div
-  class="flex flex-wrap items-center justify-between gap-8 rounded-2xl bg-[#04071C] px-12 py-8 pr-24"
+  class="flex flex-wrap items-center justify-between gap-8 rounded-2xl bg-neutral-800 px-12 py-8 pr-24"
 >
   <div class="max-w-2xl">
     <h2 class="gradient typography-3 mb-2">Do you need help?</h2>
@@ -21,10 +21,6 @@ import arrowIcon from "@assets/icons/arrow.svg";
   >
     Get consultation
 
-    <img
-      class="transition-transform group-hover:translate-x-0.5"
-      src={arrowIcon.src}
-      alt=""
-    />
+    <ArrowIcon class="transition-transform group-hover:translate-x-0.5" />
   </a>
 </div>

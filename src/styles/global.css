@@ -3,23 +3,38 @@
 @theme {
   --font-sans: "DM Sans", sans-serif;
 
+  --color-neutral-*: initial;
+
+  --color-neutral-300: #c1d0e2;
+  --color-neutral-500: #1d1f2e;
+  --color-neutral-600: #161a31;
+  --color-neutral-700: #0c0e1d;
+  --color-neutral-800: #04071c;
+  --color-neutral-900: #000212;
+
   --color-primary: #523ae7;
   --color-secondary: #af87ff;
-  --color-background: #000212;
-  --color-foreground: #c1d0e2;
 }
 
 @layer base {
   body {
     font-family: var(--font-sans);
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: var(--color-neutral-900);
+    color: var(--color-neutral-300);
     letter-spacing: 0.02em;
   }
 
   a,
   button:not(:disabled) {
     cursor: pointer;
+  }
+}
+
+@layer components {
+  .gradient {
+    background: linear-gradient(var(--color-white), var(--color-secondary));
+    color: transparent;
+    background-clip: text;
   }
 
   .typography-1 {
@@ -31,19 +46,12 @@
   .typography-2 {
     font-size: var(--text-5xl);
     text-transform: uppercase;
+    line-height: 1.3;
   }
 
   .typography-3 {
     text-transform: uppercase;
     font-size: 2rem;
-  }
-}
-
-@layer components {
-  .gradient {
-    background: linear-gradient(var(--color-white), var(--color-secondary));
-    color: transparent;
-    background-clip: text;
   }
 }
 
