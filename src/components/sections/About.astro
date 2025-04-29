@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 
 import Button from "@ui/Button.astro";
 
-import globe from "@assets/globe.png";
+import globeImage from "@assets/globe.png";
 ---
 
 <section id="about">
@@ -34,8 +34,8 @@ import globe from "@assets/globe.png";
         <Button href="#">Book a meeting</Button>
       </div>
 
-      <div class="shrink-0">
-        <Image src={globe} alt="" />
+      <div class="shrink-0 lg:-mr-3">
+        <Image src={globeImage} alt="" />
       </div>
     </div>
   </div>

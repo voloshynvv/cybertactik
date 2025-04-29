@@ -1,0 +1,56 @@
+---
+import Feature from "./Feature.astro";
+
+import aiIcon from "@assets/icons/ai.svg";
+import engineIcon from "@assets/icons/engine.svg";
+import nlpIcon from "@assets/icons/nlp.svg";
+import modelIcon from "@assets/icons/model.svg";
+import technologyIcon from "@assets/icons/technology.svg";
+import multiplayerIcon from "@assets/icons/multiplayer.svg";
+---
+
+<section>
+  <div class="container">
+    <h2 class="typography-2 gradient mx-auto mb-6 max-w-3xl text-center">
+      Sophisticated cyber crisis simulation
+    </h2>
+
+    <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Feature
+        title="AI-Driven Scenario Generation"
+        description="AI creates adaptive attack scenarios that shift based on user actions—making every simulation unique."
+        icon={aiIcon}
+      />
+
+      <Feature
+        title="Advanced Analytics Engine"
+        description="Live dashboards track key metrics, while reports show response times, team coordination, and benchmarks."
+        icon={engineIcon}
+      />
+
+      <Feature
+        title="Natural Language Processing (NLP)"
+        description="Simulates realistic crisis communication—phishing, media, execs, and internal coordination—for added depth."
+        icon={nlpIcon}
+      />
+
+      <Feature
+        title="Predictive Risk Modeling"
+        description="Adapts to decisions, mirroring real attack dynamics and org-specific risks."
+        icon={modelIcon}
+      />
+
+      <Feature
+        title="Digital Twin Technology"
+        description="Simulates your actual IT setup—realistic, personalized, never generic."
+        icon={technologyIcon}
+      />
+
+      <Feature
+        title="Immersive AR/VR and Multiplayer"
+        description="High-pressure environments test actions in real time for true-to-life decision-making."
+        icon={multiplayerIcon}
+      />
+    </ul>
+  </div>
+</section>
