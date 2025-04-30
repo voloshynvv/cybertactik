@@ -60,7 +60,7 @@ const links = [
         </ul>
       </div>
 
-      <div class="space-y-10">
+      <div id="bg-gradient" class="relative space-y-10">
         <div>
           <p class="mb-2 text-sm tracking-normal">Contact Us</p>
           <a class="typography-3 gradient" href="tel:+18919891191"
@@ -109,3 +109,17 @@ const links = [
     </div>
   </div>
 </footer>
+
+<style>
+  #bg-gradient::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      56.11deg,
+      rgba(217, 217, 217, 0) 8.11%,
+      #28217c 69.95%
+    );
+    filter: blur(300px);
+  }
+</style>
