@@ -1,12 +1,13 @@
 ---
-import Button from "@/components/ui/Button.astro";
-import CheckedList from "@/components/ui/CheckedList.astro";
+import { Image } from "astro:assets";
+
+import Button from "@ui/Button.astro";
+import CheckedList from "@ui/CheckedList.astro";
 import BoxWithGradient from "./BoxWithGradient.astro";
 
 import BanknotesIcon from "@assets/icons/banknotes.svg";
 import StarIcon from "@assets/icons/star.svg";
 import globeIcon from "@assets/icons/globe.svg";
-import { Image } from "astro:assets";
 ---
 
 <section>
@@ -30,7 +31,7 @@ import { Image } from "astro:assets";
           ]}
         />
 
-        <div class="space-x-4">
+        <div class="flex flex-wrap gap-4">
           <Button href="#">Apply here</Button>
           <Button href="#" variant="outline">Book a call</Button>
         </div>
