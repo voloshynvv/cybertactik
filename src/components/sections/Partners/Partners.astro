@@ -1,0 +1,71 @@
+---
+import Button from "@/components/ui/Button.astro";
+import CheckedList from "@/components/ui/CheckedList.astro";
+import BoxWithGradient from "./BoxWithGradient.astro";
+
+import BanknotesIcon from "@assets/icons/banknotes.svg";
+import StarIcon from "@assets/icons/star.svg";
+import globeIcon from "@assets/icons/globe.svg";
+import { Image } from "astro:assets";
+---
+
+<section>
+  <div class="container">
+    <div class="grid items-center gap-10 lg:grid-cols-2">
+      <div class="space-y-6 pr-4">
+        <h2 class="gradient typography-2 mb-6">Pilot partners</h2>
+
+        <p class="text-xl">
+          Be Among the First to Simulate Cyber Chaos — at Half the Price.
+          CYBERTACTIK is launching with select pilot partners.
+        </p>
+
+        <CheckedList
+          items={[
+            "Full access to CYBERTACTIK platform (AI, VR, analytics)",
+            "Custom onboarding & simulation setup",
+            "Real-time dashboards + post-simulation reports",
+            "Strategic roadmap with tailored recommendations",
+            "Recognition as an innovation leader in cybersecurity",
+          ]}
+        />
+
+        <div class="space-x-4">
+          <Button href="#">Apply here</Button>
+          <Button href="#" variant="outline">Book a call</Button>
+        </div>
+      </div>
+
+      <div>
+        <div class="relative sm:mx-auto sm:w-fit">
+          <Image class="hidden sm:block" src={globeIcon} alt="" />
+
+          <BoxWithGradient
+            class="mb-10 max-w-full sm:absolute sm:top-40 sm:left-1/2 sm:-translate-1/2"
+          >
+            <div class="mb-2 flex items-center gap-x-2">
+              <StarIcon />
+
+              <p
+                class="gradient text-base font-medium tracking-widest uppercase"
+              >
+                Spots are limited
+              </p>
+            </div>
+
+            <p class="gradient max-w-60">
+              Only a few organizations will be onboarded during this pilot
+              phase.
+            </p>
+          </BoxWithGradient>
+
+          <BoxWithGradient class="max-w-full sm:absolute sm:bottom-4 sm:left-6">
+            <p class="gradient text-[5rem]">50%</p>
+            <BanknotesIcon class="mb-2" />
+            <p>discount on standard pricing</p>
+          </BoxWithGradient>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

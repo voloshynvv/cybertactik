@@ -1,6 +1,7 @@
 ---
 import shapeIcon from "@assets/icons/shape.svg";
 import AnimatedPlusIcon from "@assets/icons/animated-plus.svg";
+import { Image } from "astro:assets";
 
 const faq = [
   {
@@ -67,7 +68,7 @@ const faq = [
         <div
           class="w-fit overflow-hidden rounded-3xl border border-neutral-500 bg-neutral-700"
         >
-          <img src={shapeIcon.src} alt="" />
+          <Image src={shapeIcon} alt="" />
         </div>
       </div>
     </div>

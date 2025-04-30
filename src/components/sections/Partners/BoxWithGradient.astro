@@ -1,0 +1,25 @@
+---
+const { class: className = "", ...rest } = Astro.props;
+---
+
+<div
+  class:list={[
+    "box border-secondary w-full rounded-3xl border px-6 py-4 backdrop-blur-xs sm:max-w-[21.25rem]",
+    className,
+  ]}
+  {...rest}
+>
+  <slot />
+</div>
+
+<style>
+  .box {
+    background: linear-gradient(
+      116.81deg,
+      --alpha(var(--color-secondary) / 50%) 3.44%,
+      --alpha(var(--color-neutral-900) / 40%) 89.18%
+    );
+  }
+
+  backdrop-filter: blur(4px);
+</style>
