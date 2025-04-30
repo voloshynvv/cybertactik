@@ -1,0 +1,28 @@
+---
+import Button from "@/components/ui/Button.astro";
+---
+
+<section class="min-h-[980px] pt-40" id="hero">
+  <div class="container">
+    <div class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
+      <h1 class="typography-1 gradient">
+        Next GEN AI powered Cyber Crisis Simulator
+      </h1>
+
+      <p class="max-w-3xl text-[1.375rem] font-medium">
+        What if your next cyberattack felt familiar because you’ve already
+        beaten it?
+      </p>
+
+      <Button href="#" variant="outline">Let's get started</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  #hero {
+    background:
+      url("/images/hero-bg.png") center no-repeat,
+      url("/images/hero-pattern.png") center;
+  }
+</style>
