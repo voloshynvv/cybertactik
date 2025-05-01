@@ -22,7 +22,12 @@ import Button from "@ui/Button.astro";
 <style>
   #hero {
     background:
-      url("/images/hero-bg.png") center no-repeat,
+      url("/images/hero-bg.png") bottom / cover no-repeat,
       url("/images/hero-pattern.png") center;
+
+    /* matches lg breakpoint */
+    @media (min-width: 64rem) {
+      background-size: auto;
+    }
   }
 </style>

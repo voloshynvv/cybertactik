@@ -2,6 +2,7 @@
 
 :root {
   --header-height: 72px;
+  --container-px: 20px;
 
   /* matches lg breakpoint */
   @media (min-width: 64rem) {
@@ -23,9 +24,6 @@
 
   --color-primary: #523ae7;
   --color-secondary: #af87ff;
-
-  --text-typography1:            
-;
 }
 
 @layer base {
@@ -75,11 +73,10 @@
 }
 
 @utility container {
-  --padding-x: 20px;
   --container-width: 1280px;
 
   width: 100%;
-  max-width: calc(var(--container-width) + var(--padding-x) * 2);
-  padding-inline: var(--padding-x);
+  max-width: calc(var(--container-width) + var(--container-px) * 2);
+  padding-inline: var(--container-px);
   margin: 0 auto;
 }
