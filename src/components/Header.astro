@@ -111,6 +111,7 @@ const navLinks = [
       header.setAttribute("data-menu", "open");
     }
 
+    document.documentElement.classList.toggle("lock-scroll", !isOpen);
     trigger.ariaExpanded = isOpen ? "false" : "true";
   }
 
