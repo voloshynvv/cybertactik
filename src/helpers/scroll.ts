@@ -1,4 +1,4 @@
-export function scrollTo(selector) {
+export function scrollTo(selector: string) {
   const section = document.querySelector(selector);
 
   if (!section) {

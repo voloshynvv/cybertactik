@@ -88,6 +88,7 @@ const navLinks = [
   const matchMedia = window.matchMedia("(min-width: 1024px)"); // lg breakpoint
 
   function closeMenu() {
+    document.documentElement.classList.remove("lock");
     trigger.ariaExpanded = "false";
     header.removeAttribute("data-menu");
   }
@@ -115,8 +116,13 @@ const navLinks = [
       entries.forEach((entry) => {
         const sectionId = entry.target.id;
 
-        const link = document.querySelector(`[data-section="#${sectionId}"]`);
-        link?.classList.toggle("active", entry.isIntersecting);
+        const links = document.querySelectorAll(
+          `[data-section="#${sectionId}"]`,
+        );
+
+        links.forEach((link) => {
+          link?.classList.toggle("active", entry.isIntersecting);
+        });
       });
     },
     { threshold: 0.5 },

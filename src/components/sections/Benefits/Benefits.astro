@@ -1,0 +1,103 @@
+---
+import BenefitCard from "./BenefitCard.astro";
+
+import ArrowIcon from "@assets/icons/arrow.svg";
+import illutration1 from "@assets/illutration-1.svg";
+import illutration2 from "@assets/illutration-2.svg";
+import illutration3 from "@assets/illutration-3.png";
+---
+
+<section class="section">
+  <div class="container">
+    <h2 class="gradient typography-2 mb-10 lg:mb-20">
+      Tangible business benefit
+    </h2>
+
+    <div
+      class="scrollbar-hidden flex w-full snap-x snap-proximity gap-6 overflow-x-auto lg:gap-12"
+    >
+      <div class="snap-center">
+        <BenefitCard
+          num="01"
+          title="Reduced Downtime Costs"
+          description="Implementing robust cybersecurity measures significantly reduces downtime costs by preventing system breaches and service interruptions."
+          imageSrc={illutration1.src}
+        />
+      </div>
+
+      <div class="snap-center">
+        <BenefitCard
+          num="02"
+          title="Improved Incident Response Readiness"
+          description="Improved Incident Response Readiness Respond faster and more effectively to threats and incidents."
+          imageSrc={illutration2.src}
+        />
+      </div>
+
+      <div class="snap-center">
+        <BenefitCard
+          num="03"
+          title="Optimized Cybersecurity Investments"
+          description="Maximize the impact of every dollar spent on security. Strategic investments ensure protection where it matters most, without overspending."
+          imageSrc={illutration3.src}
+        />
+      </div>
+    </div>
+
+    <div class="relative z-10 -mt-16 flex justify-end gap-x-3">
+      <button
+        class="prev inline-flex size-[3.125rem] items-center justify-center rounded-full border border-neutral-500 bg-neutral-700 hover:border-[#8B56F6]"
+        aria-label="prev"
+      >
+        <ArrowIcon class="rotate-180" />
+      </button>
+
+      <button
+        class="next inline-flex size-[3.125rem] items-center justify-center rounded-full border border-neutral-500 bg-neutral-700"
+        aria-label="next"
+      >
+        <ArrowIcon />
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const cards = document.querySelectorAll(".card");
+  const prevButton = document.querySelector(".prev");
+  const nextButton = document.querySelector(".next");
+
+  let activeIndex = 0;
+  const total = cards.length;
+
+  function handleScroll() {
+    console.log("scrolling to", activeIndex);
+
+    cards[activeIndex].scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
+  }
+
+  nextButton?.addEventListener("click", () => {
+    console.log(total, activeIndex);
+
+    if (total - 1 === activeIndex) {
+      activeIndex = 0;
+    } else {
+      activeIndex++;
+    }
+
+    handleScroll();
+  });
+
+  prevButton?.addEventListener("click", () => {
+    if (activeIndex === 0) {
+      activeIndex = total - 1;
+    } else {
+      activeIndex--;
+    }
+
+    handleScroll();
+  });
+</script>

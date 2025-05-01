@@ -3,6 +3,7 @@
 :root {
   --header-height: 4.5rem;
   --container-px: 20px;
+  --container-width: 80rem;
 
   /* matches lg breakpoint */
   @media (min-width: 64rem) {
@@ -76,9 +77,16 @@
   }
 }
 
-@utility container {
-  --container-width: 80rem;
+@utility scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility container {
   width: 100%;
   max-width: calc(var(--container-width) + var(--container-px) * 2);
   padding-inline: var(--container-px);
