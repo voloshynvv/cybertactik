@@ -27,13 +27,6 @@
 }
 
 @layer base {
-  :root.lock-scroll {
-    overflow-y: hidden;
-  }
-  :root {
-    overflow-y: hidden;
-  }
-
   body {
     font-family: var(--font-sans);
     background-color: var(--color-neutral-900);
@@ -52,6 +45,10 @@
 
   summary::-webkit-details-marker {
     display: none;
+  }
+
+  .lock {
+    overflow: hidden;
   }
 }
 
