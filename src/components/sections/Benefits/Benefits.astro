@@ -46,17 +46,18 @@ import illutration3 from "@assets/illutration-3.png";
 
     <div class="relative z-10 -mt-16 flex justify-end gap-x-3">
       <button
-        class="prev inline-flex size-[3.125rem] items-center justify-center rounded-full border border-neutral-500 bg-neutral-700 hover:border-[#8B56F6]"
+        class="prev inline-flex size-[3.125rem] items-center justify-center rounded-full border border-neutral-500 bg-neutral-700 transition-colors hover:border-[#8B56F6] hover:shadow-[0px_4px_25px_--alpha(#8B56F6/15%)]"
         aria-label="prev"
       >
         <ArrowIcon class="rotate-180" />
       </button>
 
       <button
-        class="next inline-flex size-[3.125rem] items-center justify-center rounded-full border border-neutral-500 bg-neutral-700"
+        class="next inline-flex size-[3.125rem] items-center justify-center rounded-full border border-neutral-500 bg-neutral-700 transition-colors hover:border-[#8B56F6] hover:shadow-[0px_4px_25px_--alpha(#8B56F6/15%)]"
         aria-label="next"
       >
         <ArrowIcon />
+        <!-- box-shadow: 0px 4px 25px 0px #8B56F626; -->
       </button>
     </div>
   </div>
@@ -71,8 +72,6 @@ import illutration3 from "@assets/illutration-3.png";
   const total = cards.length;
 
   function handleScroll() {
-    console.log("scrolling to", activeIndex);
-
     cards[activeIndex].scrollIntoView({
       behavior: "smooth",
       block: "nearest",
@@ -80,8 +79,6 @@ import illutration3 from "@assets/illutration-3.png";
   }
 
   nextButton?.addEventListener("click", () => {
-    console.log(total, activeIndex);
-
     if (total - 1 === activeIndex) {
       activeIndex = 0;
     } else {
