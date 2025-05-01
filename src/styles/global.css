@@ -27,10 +27,10 @@
 }
 
 @layer base {
-  html.lock-scroll {
+  :root.lock-scroll {
     overflow-y: hidden;
   }
-  html {
+  :root {
     overflow-y: hidden;
   }
 
