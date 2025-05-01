@@ -30,6 +30,9 @@
   html.lock-scroll {
     overflow-y: hidden;
   }
+  html {
+    overflow-y: hidden;
+  }
 
   body {
     font-family: var(--font-sans);
