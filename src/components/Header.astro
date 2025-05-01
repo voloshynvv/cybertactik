@@ -1,0 +1,191 @@
+---
+import Logo from "@ui/Logo.astro";
+import HeaderNavLinks from "./HeaderNavLinks.astro";
+import HeaderActions from "./HeaderActions.astro";
+
+import MenuIcon from "@assets/icons/menu.svg";
+
+const navLinks = [
+  {
+    href: "#about",
+    label: "About",
+  },
+  {
+    href: "#publications",
+    label: "Publications",
+  },
+  {
+    href: "#cybertactik",
+    label: "Cybertactik",
+  },
+];
+---
+
+<div id="header-observer-helper"></div>
+
+<header id="site-header" class="fixed top-0 left-0 z-50 flex w-full">
+  <div class="container">
+    <div
+      class="flex h-[var(--header-height)] flex-wrap items-center justify-between"
+    >
+      <div class="z-10">
+        <Logo />
+      </div>
+
+      <div class="fluid-gap hidden lg:flex lg:items-center">
+        <nav>
+          <HeaderNavLinks links={navLinks} />
+        </nav>
+
+        <div class="gap-x-4 lg:flex">
+          <HeaderActions />
+        </div>
+      </div>
+
+      <button
+        id="trigger"
+        aria-expanded="false"
+        aria-controls="menu"
+        class="peer z-10 p-2 lg:hidden"
+      >
+        <MenuIcon />
+      </button>
+    </div>
+
+    <div id="menu" class="hidden pb-8 lg:hidden">
+      <nav>
+        <HeaderNavLinks links={navLinks} />
+      </nav>
+
+      <div class="mx-auto mt-6 flex max-w-sm flex-col gap-4">
+        <HeaderActions />
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  import { scrollTo } from "@/helpers/scroll";
+
+  const HEADER_STICKY_ROOT_MARGIN = 120;
+
+  const header = document.querySelector("#site-header") as HTMLElement;
+
+  const headerObserverHelper = document.querySelector(
+    "#header-observer-helper",
+  ) as HTMLElement;
+
+  const trigger = document.querySelector("#trigger") as HTMLButtonElement;
+
+  // Menu
+  const matchMedia = window.matchMedia("(min-width: 1024px)");
+
+  function closeMenu() {
+    trigger.ariaExpanded = "false";
+    header.classList.remove("is-open");
+  }
+
+  function openMenu() {
+    const isOpen = trigger.ariaExpanded === "true";
+    header.classList.toggle("is-open", !isOpen);
+    trigger.ariaExpanded = isOpen ? "false" : "true";
+  }
+
+  matchMedia.addEventListener("change", closeMenu);
+  trigger.addEventListener("click", openMenu);
+
+  const sections = document.querySelectorAll(".section[id]");
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const sectionId = entry.target.id;
+
+        if (!entry.isIntersecting) {
+          document
+            .querySelector(`[data-section="#${sectionId}"]`)
+            ?.classList.remove("active");
+        }
+
+        document
+          .querySelector(`[data-section="#${sectionId}"]`)
+          ?.classList.toggle("active", entry.isIntersecting);
+      });
+    },
+    { threshold: 0.5 },
+  );
+
+  // const sectionObserver = new IntersectionObserver(
+  //   (entries) => {
+  //     let visibleEntry = entries.find((entry) => entry.isIntersecting);
+
+  //     if (visibleEntry) {
+  //       const sectionId = visibleEntry.target.id;
+
+  //       navLinks.forEach((link) => link.classList.remove("active"));
+
+  //       document
+  //         .querySelector(`[data-section="#${sectionId}"]`)
+  //         ?.classList.add("active");
+  //     }
+  //   },
+  //   {
+  //     threshold: 0.5, // Adjust to your layout, e.g., 0.5 means 50% of the section must be visible
+  //   },
+  // );
+
+  sections.forEach((section) => {
+    sectionObserver.observe(section);
+  });
+
+  // Sticky header
+  const headerObserver = new IntersectionObserver(
+    (entries) => {
+      const [entry] = entries;
+      header.classList.toggle("has-sticky", !entry.isIntersecting);
+    },
+    {
+      rootMargin: `${HEADER_STICKY_ROOT_MARGIN}px`,
+    },
+  );
+
+  headerObserver.observe(headerObserverHelper);
+
+  header.addEventListener("click", (e) => {
+    const target = (e.target as HTMLElement).closest<HTMLElement>(
+      "[data-scroll]",
+    );
+
+    if (!target) return;
+
+    const selector = target.dataset.scroll;
+
+    if (!selector) return;
+
+    e.preventDefault();
+    scrollTo(selector);
+    closeMenu();
+  });
+</script>
+
+<style>
+  .has-sticky:not(.is-open) {
+    background-color: --alpha(var(--color-neutral-900) / 80%);
+  }
+
+  .is-open,
+  .is-open #menu {
+    background-color: var(--color-neutral-900);
+  }
+
+  .is-open #menu {
+    display: block;
+  }
+
+  .fluid-gap {
+    /* matches lg breakpoint */
+    @media (min-width: 64rem) {
+      gap: clamp(1rem, calc(0.3047 * (100vw - 64rem) + 1rem), 5.875rem);
+    }
+  }
+</style>

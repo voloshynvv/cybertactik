@@ -1,0 +1,42 @@
+---
+interface Props {
+  links: { label: string; href: string }[];
+}
+
+const { links } = Astro.props;
+---
+
+<ul class="flex flex-col items-center lg:flex-row lg:gap-4">
+  {
+    links.map(({ href, label }) => (
+      <li>
+        <a
+          class="px-fluid inline-block py-2 text-lg transition-colors hover:text-white"
+          href={href}
+          data-section={href}
+          data-scroll={href}
+        >
+          {label}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .px-fluid {
+    padding-inline: clamp(
+      0.75rem,
+      calc(0.0469 * (100vw - 64rem) + 0.75rem),
+      1.5rem
+    );
+  }
+
+  .active {
+    color: var(--color-white);
+  }
+
+  ul a:not(.active, :hover) {
+    color: --alpha(var(--color-white) / 60%);
+  }
+</style>

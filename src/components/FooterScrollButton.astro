@@ -15,7 +15,9 @@ import ArrowIcon from "@assets/icons/arrow.svg";
 </button>
 
 <script>
+  import { scrollTo } from "@/helpers/scroll";
+
   document.querySelector("#scroll-button")?.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollTo("#hero");
   });
 </script>

@@ -6,7 +6,7 @@ const { title, description, icon } = Astro.props;
 
 <li>
   <div
-    class="from-secondary/20 inset-shadow mb-6 flex size-[5.25rem] items-center justify-center rounded-3xl border border-white/40 bg-linear-to-r to-white/5"
+    class="icon from-secondary/20 mb-6 flex size-[5.25rem] items-center justify-center rounded-3xl border border-white/40 bg-linear-to-r to-white/5"
   >
     <Image src={icon} alt="" />
   </div>
@@ -14,3 +14,9 @@ const { title, description, icon } = Astro.props;
   <h3 class="mb-3 text-xl font-medium text-white">{title}</h3>
   <p class="text-lg">{description}</p>
 </li>
+
+<style>
+  .icon {
+    box-shadow: inset 0px 0px 20px 0px --alpha(var(--color-secondary) / 50%);
+  }
+</style>
