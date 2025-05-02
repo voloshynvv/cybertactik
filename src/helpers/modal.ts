@@ -19,9 +19,6 @@ export function createModal({
 
   function closeModal() {
     modal.close();
-  }
-
-  modal.addEventListener("transitioncancel", () => {
     document.documentElement.classList.remove("lock");
-  });
+  }
 }
