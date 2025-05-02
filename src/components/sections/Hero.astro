@@ -20,7 +20,13 @@ import Modal from "@ui/Modal.astro";
       </Button>
 
       <Modal dialogId="video-modal">
-        <video autoplay playsinline controls muted src="/video.mp4"></video>
+        <video
+          class="video"
+          autoplay
+          playsinline
+          controls
+          muted
+          src="/video.mp4"></video>
       </Modal>
     </div>
   </div>
@@ -29,15 +35,23 @@ import Modal from "@ui/Modal.astro";
 <script>
   import { createModal } from "@/helpers/modal";
 
+  const video = document.querySelector(".video") as HTMLVideoElement;
+
   const trigger = document.querySelector(
     "#video-modal-trigger",
   ) as HTMLButtonElement;
 
   const modal = document.querySelector("#video-modal") as HTMLDialogElement;
 
+  function onClose() {
+    video.pause();
+    video.currentTime = 0;
+  }
+
   createModal({
     trigger,
     modal,
+    onClose,
   });
 </script>
 

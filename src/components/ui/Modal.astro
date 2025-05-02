@@ -18,10 +18,9 @@ const { dialogId, ...props } = Astro.props;
     <button
       class="absolute top-0 right-4 z-10 inline-flex size-12 items-center justify-center text-neutral-300"
       id="close-modal"
-      autofocus
       aria-label="close"
     >
-      <CloseIcon aria-hidden />
+      <CloseIcon class="size-8" aria-hidden />
     </button>
 
     <slot />
@@ -56,6 +55,6 @@ const { dialogId, ...props } = Astro.props;
   }
 
   dialog[open]::backdrop {
-    background-color: --alpha(var(--color-black) / 50%);
+    background-color: --alpha(var(--color-black) / 85%);
   }
 </style>

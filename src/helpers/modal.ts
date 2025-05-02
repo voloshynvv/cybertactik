@@ -1,9 +1,11 @@
 export function createModal({
   trigger,
   modal,
+  onClose,
 }: {
   trigger: HTMLElement;
   modal: HTMLDialogElement;
+  onClose?: () => void;
 }) {
   const closeButton = document.querySelector("#close-modal");
 
@@ -20,5 +22,7 @@ export function createModal({
   function closeModal() {
     modal.close();
     document.documentElement.classList.remove("lock");
+
+    onClose?.();
   }
 }
