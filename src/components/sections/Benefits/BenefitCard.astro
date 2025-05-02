@@ -4,15 +4,15 @@ const { title, num, imageSrc } = Astro.props;
 import ArrowIcon from "@assets/icons/arrow.svg";
 ---
 
-<article class="card relative w-xs md:w-md lg:w-[46.25rem]">
+<article class="card relative w-xs md:w-md lg:w-lg">
   <img src={imageSrc} width="740" height="540" alt="" />
 
   <div
-    class="relative mx-4 mt-[-3rem] flex flex-col rounded-3xl border border-neutral-500 bg-neutral-700 p-6 md:mt-[-4.5rem] lg:mt-[-12rem] lg:ml-auto lg:min-h-[21.25rem] lg:w-[73%] lg:p-8"
+    class="relative mx-4 mt-[-3rem] flex flex-col rounded-3xl border border-neutral-500 bg-neutral-700 p-6 md:mt-[-4.5rem] lg:mt-[-8rem] lg:ml-auto lg:min-h-64 lg:w-[85%] lg:p-8"
   >
-    <p class="text-primary mb-6 text-lg font-bold">{num}/</p>
+    <p class="text-primary mb-4 text-lg font-bold">{num}/</p>
 
-    <h3 class="mb-6 flex-1 text-xl text-white lg:text-[1.875rem]">
+    <h3 class="mb-4 flex-1 text-xl text-white">
       {title}
     </h3>
 
