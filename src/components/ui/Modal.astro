@@ -8,18 +8,24 @@ interface Props {
 const { dialogId, ...props } = Astro.props;
 ---
 
-<!-- transition: all 0.7s allow-discrete; -->
-<dialog class="m-auto max-w-5xl" id={dialogId} closedby="any" {...props}>
-  <button
-    class="absolute top-0 right-0 z-10 inline-flex size-12 items-center justify-center"
-    id="close-modal"
-    autofocus
-    aria-label="close"
-  >
-    <CloseIcon aria-hidden />
-  </button>
+<dialog
+  class="relative m-auto max-w-4xl bg-transparent p-12"
+  id={dialogId}
+  closedby="any"
+  {...props}
+>
+  <div>
+    <button
+      class="absolute top-0 right-0 z-10 inline-flex size-12 items-center justify-center text-neutral-300"
+      id="close-modal"
+      autofocus
+      aria-label="close"
+    >
+      <CloseIcon aria-hidden />
+    </button>
 
-  <slot />
+    <slot />
+  </div>
 </dialog>
 
 <style>

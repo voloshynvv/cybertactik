@@ -80,7 +80,6 @@ const navLinks = [
 
 <script>
   import { scrollTo } from "@/helpers/scroll";
-  import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
   const header = document.querySelector("#site-header") as HTMLElement;
   const menu = document.querySelector("#menu") as HTMLElement;
@@ -98,15 +97,14 @@ const navLinks = [
   function toggleMenu() {
     const isOpen = trigger.ariaExpanded === "true";
 
-    trigger.ariaExpanded = isOpen ? "false" : "true";
-
     if (isOpen) {
       header.removeAttribute("data-menu");
-      enableBodyScroll(menu);
     } else {
-      disableBodyScroll(menu, { reserveScrollBarGap: true });
       header.setAttribute("data-menu", "open");
     }
+
+    trigger.ariaExpanded = isOpen ? "false" : "true";
+    document.documentElement.classList.toggle("lock", !isOpen);
   }
 
   matchMedia.addEventListener("change", closeMenu);

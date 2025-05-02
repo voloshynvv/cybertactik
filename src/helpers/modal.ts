@@ -1,5 +1,3 @@
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-
 export function createModal({
   trigger,
   modal,
@@ -16,11 +14,14 @@ export function createModal({
 
   function openModal() {
     modal.showModal();
-    disableBodyScroll(modal, { reserveScrollBarGap: true });
+    document.documentElement.classList.add("lock");
   }
 
   function closeModal() {
-    enableBodyScroll(modal);
     modal.close();
   }
+
+  modal.addEventListener("transitioncancel", () => {
+    document.documentElement.classList.remove("lock");
+  });
 }
