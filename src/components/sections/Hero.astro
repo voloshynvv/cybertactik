@@ -1,5 +1,6 @@
 ---
 import Button from "@ui/Button.astro";
+import Modal from "@ui/Modal.astro";
 ---
 
 <section class="section pt-40 pb-[29.875rem]" id="hero">
@@ -14,10 +15,31 @@ import Button from "@ui/Button.astro";
         beaten it?
       </p>
 
-      <Button href="#" variant="outline">Let's get started</Button>
+      <Button id="video-modal-trigger" variant="outline" as="button">
+        Let's get started
+      </Button>
+
+      <Modal dialogId="video-modal">
+        <video autoplay controls muted src="/video.mp4"></video>
+      </Modal>
     </div>
   </div>
 </section>
+
+<script>
+  import { createModal } from "@/helpers/modal";
+
+  const trigger = document.querySelector(
+    "#video-modal-trigger",
+  ) as HTMLButtonElement;
+
+  const modal = document.querySelector("#video-modal") as HTMLDialogElement;
+
+  createModal({
+    trigger,
+    modal,
+  });
+</script>
 
 <style>
   #hero {

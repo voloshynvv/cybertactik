@@ -7,36 +7,16 @@ import LinkedinIcon from "@assets/icons/linkedin.svg";
 
 const links = [
   {
-    href: "#",
-    label: "Home",
-  },
-  {
-    href: "#",
+    href: "https://www.brainstormcyber.com/en/contact",
     label: "Contact Us",
   },
   {
-    href: "#",
-    label: "Cyber Culture",
+    href: "/pitch-presentation.pdf",
+    label: "Investor Interest",
   },
   {
-    href: "#",
-    label: "Cyber Resilience",
-  },
-  {
-    href: "#",
-    label: "Cyber Security",
-  },
-  {
-    href: "#",
-    label: "Cyber Performance",
-  },
-  {
-    href: "#",
-    label: "Privacy Policy",
-  },
-  {
-    href: "#",
-    label: "Terms of Use",
+    href: "https://calendly.com/brainstormcyberrisk-ttanic",
+    label: "Book a meeting",
   },
 ];
 ---
@@ -49,10 +29,14 @@ const links = [
 
         <ul class="flex flex-wrap gap-x-5.5 gap-y-3.5 text-lg">
           {
-            links.map((link) => (
+            links.map(({ label, href }) => (
               <li class="after:ml-5 after:text-white after:content-['/'] last:after:hidden">
-                <a class="transition-colors hover:text-white" href={link.href}>
-                  {link.label}
+                <a
+                  class="transition-colors hover:text-white"
+                  href={href}
+                  target="_blank"
+                >
+                  {label}
                 </a>
               </li>
             ))
